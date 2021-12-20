@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EnterInputDataEncryption">
+   <children>
+      <Button fx:id="nextButton" layoutX="490.0" layoutY="349.0" mnemonicParsing="false" onAction="#nextScene" prefHeight="26.0" prefWidth="83.0" text="Next" />
+      <Button fx:id="setDefaultEncryptionDataId" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" onAction="#setDefaultEncryptionData" text="Default data" />
+      <Button fx:id="generateKeyid" layoutX="353.0" layoutY="349.0" mnemonicParsing="false" onAction="#generateKey" text="Generate key" />
+      <Label layoutX="39.0" layoutY="35.0" />
+      <Label layoutX="39.0" layoutY="35.0" text="Key: " />
+      <Label layoutX="38.0" layoutY="74.0" text="S array:" />
+      <Label layoutX="38.0" layoutY="112.0" text="L array:" />
+      <Label layoutX="38.0" layoutY="149.0" text="Plaintext:" />
+      <TextField fx:id="encryptionKeyTextField" layoutX="129.0" layoutY="30.0" prefHeight="26.0" prefWidth="438.0" />
+      <TextField fx:id="sArrayTextField" layoutX="129.0" layoutY="69.0" prefHeight="26.0" prefWidth="438.0" />
+      <TextField fx:id="lArrayTextField" layoutX="129.0" layoutY="107.0" prefHeight="26.0" prefWidth="438.0" />
+      <TextField fx:id="plaintextKeyTextField" layoutX="129.0" layoutY="144.0" prefHeight="26.0" prefWidth="438.0" />
+   </children>
+</AnchorPane>
