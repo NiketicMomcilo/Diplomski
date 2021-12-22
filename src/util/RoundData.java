@@ -1,4 +1,4 @@
-package sample;
+package util;
 
 public class RoundData {
     public int Astart, Afinish, Bstart, Bfinish, Cstart, Cfinish, Dstart, Dfinish;
@@ -12,10 +12,8 @@ public class RoundData {
 
 
     public String toString ( ) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("A ,B, C, D:" + Astart + "|" + Bstart + "|" + Cstart + "|" + Dstart + "\n");
-        sb.append("A ,B, C, D:" + Afinish + "|" + Bfinish + "|" + Cfinish + "|" + Dfinish + "\n");
-        sb.append("============================\n");
-        return sb.toString();
+        return "A ,B, C, D:" + Astart + "|" + Bstart + "|" + Cstart + "|" + Dstart + "\n" +
+                "A ,B, C, D:" + Afinish + "|" + Bfinish + "|" + Cfinish + "|" + Dfinish + "\n" +
+                "============================\n";
     }
 }

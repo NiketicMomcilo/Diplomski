@@ -1,4 +1,4 @@
-package sample;
+package util;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ public class RC6 {
     public static int word = 32, rounds = 20;
     public static int[] S;
     public static int[] L;
-    public static int Pw = 0xb7e15163, Qw = 0x9e3779b9;
+    public static int Pw = 0xb7e15163, Qw = 0x9e3779b9; //magic constants
 
     public static String EncryptionPlaintext;
     public static String EncryptionUserKey;
@@ -21,24 +21,16 @@ public class RC6 {
 
     // KEY SCHEDULING ALGORITHM
     public static void KeySchedule ( byte[] key ) {
-
-
         S = new int[ 2 * rounds + 4 ];
         S[ 0 ] = Pw;
-
         int c = key.length / ( word / 8 );
         L = bytestoWords(key, c);
-
         for ( int i = 1 ; i < ( 2 * rounds + 4 ) ; i++ ) {
             S[ i ] = S[ i - 1 ] + Qw;
         }
-
         int A, B, i, j;
-
         A = B = i = j = 0;
-
         int v = 3 * Math.max(c, ( 2 * rounds + 4 ));
-
         for ( int s = 0 ; s < v ; s++ ) {
             A = S[ i ] = rotateLeft(( S[ i ] + A + B ), 3);
             B = L[ j ] = rotateLeft(L[ j ] + A + B, A + B);
@@ -48,27 +40,15 @@ public class RC6 {
         }
     }
 
-
     // ENCRYPTION ALGORITHM
     public static byte[] encryption ( byte[] encData ) {
-
-
         int temp, t, u;
-
         int[] temp_enc_data = new int[ encData.length / 4 ];
-
         for ( int i = 0 ; i < temp_enc_data.length ; i++ )
             temp_enc_data[ i ] = 0;
-
-
         temp_enc_data = convertBytetoInt(encData, temp_enc_data.length);
-
-
         int A, B, C, D;
-
         A = B = C = D = 0;
-
-
         A = temp_enc_data[ 0 ];
         B = temp_enc_data[ 1 ];
         C = temp_enc_data[ 2 ];
@@ -79,7 +59,7 @@ public class RC6 {
         rd.S0 = S[ 0 ];
         rd.S1 = S[ 1 ];
         rd.S2r2 = S[ 2 * rounds + 2 ];
-        rd.S2r2 = S[ 2 * rounds + 3 ];
+        rd.S2r3 = S[ 2 * rounds + 3 ];
 
         rd.Astart = A;
         rd.Bstart = B;
@@ -264,23 +244,37 @@ public class RC6 {
         for ( int i = 0 ; i < temp_data_decryption.length ; i++ )
             temp_data_decryption[ i ] = 0;
 
-
         temp_data_decryption = convertBytetoInt(keySchArray, temp_data_decryption.length);
-
 
         A = temp_data_decryption[ 0 ];
         B = temp_data_decryption[ 1 ];
         C = temp_data_decryption[ 2 ];
         D = temp_data_decryption[ 3 ];
 
+        RoundData rd = new RoundData();
+
+        rd.S0 = S[ 0 ];
+        rd.S1 = S[ 1 ];
+        rd.S2r2 = S[ 2 * rounds + 2 ];
+        rd.S2r3 = S[ 2 * rounds + 3 ];
+
+        rd.Astart = A;
+        rd.Bstart = B;
+        rd.Cstart = C;
+        rd.Dstart = D;
 
         C = C - S[ 2 * rounds + 3 ];
         A = A - S[ 2 * rounds + 2 ];
 
+        rd.BS0 = B;
+        rd.DS1 = D;
+
         int lgw = 5;
 
         byte[] outputArr = new byte[ keySchArray.length ];
+
         for ( int i = rounds ; i >= 1 ; i-- ) {
+
             temp = D;
             D = C;
             C = B;
@@ -320,6 +314,71 @@ public class RC6 {
         return int_to_byte;
     }
 
+    // MAIN
+    public static void main ( String[] args ) {
+        String key_data;
+        String given_text;
+        String text_data;
+        String key_value;
+        String[] input_text_val;
+
+        boolean flag = true;
+        if ( flag ) {
+            text_data = "45 46 47 48 c8 24 18 16 f0 d7 e4 89 20 ad 16 a1";
+            key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
+
+            key_data = key_data.replace(" ", "");
+            text_data = text_data.replace(" ", "");
+
+            byte[] key = hexStringToByteArray(key_data);
+            byte[] words = hexStringToByteArray(text_data);
+
+            KeySchedule(key);
+
+            byte[] encrypt = encryption(words);
+            String encrypted_text = byteArrayToHex(encrypt);
+            encrypted_text = encrypted_text.replaceAll("..", "$0 ");
+
+            System.out.println("ciphertext: " + encrypted_text);
+        } else {
+            text_data = "87 f2 36 15 1c 59 96 ce aa 17 63 2e 88 c9 0d 4e";
+            key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
+
+            key_data = key_data.replace(" ", "");
+            text_data = text_data.replace(" ", "");
+
+            byte[] key2 = hexStringToByteArray(key_data);
+            byte[] X = hexStringToByteArray(text_data);
+            KeySchedule(key2);
+            byte[] decrypt = decryption(X);
+            String decrypted_text = byteArrayToHex(decrypt);
+            decrypted_text = decrypted_text.replaceAll("..", "$0 ");
+
+            System.out.println("plaintext: " + decrypted_text);
+
+        }
+
+
+    }
+
+    // CODE TO CONVERT HEXADECIMAL NUMBERS IN STRING TO BYTE ARRAY
+    public static byte[] hexStringToByteArray ( String s ) {
+        int string_len = s.length();
+        byte[] data = new byte[ string_len / 2 ];
+        for ( int i = 0 ; i < string_len ; i += 2 ) {
+            data[ i / 2 ] = ( byte ) ( ( Character.digit(s.charAt(i), 16) << 4 ) + Character
+                    .digit(s.charAt(i + 1), 16) );
+        }
+        return data;
+    }
+
+    // CODE TO CONVERT BYTE ARRAY TO HEX FORMAT
+    public static String byteArrayToHex ( byte[] a ) {
+        StringBuilder sb = new StringBuilder(a.length * 2);
+        for ( byte b : a )
+            sb.append(String.format("%02x", b & 0xff));
+        return sb.toString();
+    }
 
     // CONVERT BYTE TO INT FORM
     private static int[] convertBytetoInt ( byte[] arr, int length ) {
@@ -353,7 +412,6 @@ public class RC6 {
         return bytes_to_words;
     }
 
-
     // ROTATE LEFT METHOD
     private static int rotateLeft ( int val, int pas ) {
         return ( val << pas ) | ( val >>> ( 32 - pas ) );
@@ -362,78 +420,6 @@ public class RC6 {
     //ROTATE RIGHT METHOD
     private static int rotateRight ( int val, int pas ) {
         return ( val >>> pas ) | ( val << ( 32 - pas ) );
-    }
-
-
-    // MAIN
-    public static void main ( String[] args ) {
-        String key_data;
-        String given_text;
-        String text_data;
-        String key_value;
-        String[] input_text_val;
-        try {
-
-            Boolean flag = true;
-            if ( flag ) {
-                text_data = "45 46 47 48 c8 24 18 16 f0 d7 e4 89 20 ad 16 a1";
-                key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
-
-                key_data = key_data.replace(" ", "");
-                text_data = text_data.replace(" ", "");
-                byte[] key = hexStringToByteArray(key_data);
-                byte[] words = hexStringToByteArray(text_data);
-                new RC6().KeySchedule(key);
-
-                byte[] encrypt = new RC6().encryption(words);
-                String encrypted_text = byteArrayToHex(encrypt);
-                encrypted_text = encrypted_text.replaceAll("..", "$0 ");
-
-                System.out.println("ciphertext: " + encrypted_text);
-            } else if ( ! flag ) {
-                text_data = "87 f2 36 15 1c 59 96 ce aa 17 63 2e 88 c9 0d 4e";
-                key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
-
-                key_data = key_data.replace(" ", "");
-                text_data = text_data.replace(" ", "");
-
-                byte[] key2 = hexStringToByteArray(key_data);
-                byte[] X = hexStringToByteArray(text_data);
-                new RC6().KeySchedule(key2);
-                byte[] decrypt = new RC6().decryption(X);
-                String decrypted_text = byteArrayToHex(decrypt);
-                decrypted_text = decrypted_text.replaceAll("..", "$0 ");
-
-                System.out.println("plaintext: " + decrypted_text);
-
-            } else {
-                System.out.println("Invalid option");
-            }
-
-
-        } finally {
-
-        }
-    }
-
-    // CODE TO CONVERT HEXADECIMAL NUMBERS IN STRING TO BYTE ARRAY
-    public static byte[] hexStringToByteArray ( String s ) {
-        int string_len = s.length();
-        byte[] data = new byte[ string_len / 2 ];
-        for ( int i = 0 ; i < string_len ; i += 2 ) {
-            data[ i / 2 ] = ( byte ) ( ( Character.digit(s.charAt(i), 16) << 4 ) + Character
-                    .digit(s.charAt(i + 1), 16) );
-        }
-        return data;
-    }
-
-
-    // CODE TO CONVERT BYTE ARRAY TO HEX FORMAT
-    public static String byteArrayToHex ( byte[] a ) {
-        StringBuilder sb = new StringBuilder(a.length * 2);
-        for ( byte b : a )
-            sb.append(String.format("%02x", b & 0xff));
-        return sb.toString();
     }
 }
 
