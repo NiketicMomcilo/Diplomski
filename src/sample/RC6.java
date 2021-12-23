@@ -1,4 +1,4 @@
-package util;
+package sample;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,8 @@ public class RC6 {
     public static String DecryptionUserKey;
     public static String DecryptionCypherText;
 
-    public static ArrayList <RoundData> roundData = new ArrayList <RoundData>();
+    public static ArrayList <EncryptionRoundData> encryptionRoundData = new ArrayList <EncryptionRoundData>();
+    public static ArrayList <DectyptionRoundData> dectyptionRoundData = new ArrayList <DectyptionRoundData>();
 
 
     // KEY SCHEDULING ALGORITHM
@@ -54,7 +55,7 @@ public class RC6 {
         C = temp_enc_data[ 2 ];
         D = temp_enc_data[ 3 ];
 
-        RoundData rd = new RoundData();
+        EncryptionRoundData rd = new EncryptionRoundData();
 
         rd.S0 = S[ 0 ];
         rd.S1 = S[ 1 ];
@@ -114,11 +115,11 @@ public class RC6 {
                 rd.Cfinish = C;
                 rd.Dfinish = D;
 
-                RC6.roundData.add(rd);
+                RC6.encryptionRoundData.add(rd);
 
             } else if ( i == rounds ) {
 
-                rd = new RoundData();
+                rd = new EncryptionRoundData();
 
                 rd.Astart = A;
                 rd.Bstart = B;
@@ -159,7 +160,7 @@ public class RC6 {
                 rd.Cfinish = C;
                 rd.Dfinish = D;
             } else {
-                rd = new RoundData();
+                rd = new EncryptionRoundData();
 
                 rd.Astart = A;
                 rd.Bstart = B;
@@ -200,7 +201,7 @@ public class RC6 {
                 rd.Cfinish = C;
                 rd.Dfinish = D;
 
-                RC6.roundData.add(rd);
+                RC6.encryptionRoundData.add(rd);
             }
 
         }
@@ -213,7 +214,7 @@ public class RC6 {
         rd.S2r2 = S[ 2 * rounds + 2 ];
         rd.Cfinish = C;
         rd.S2r3 = S[ 2 * rounds + 3 ];
-        roundData.add(rd);
+        encryptionRoundData.add(rd);
 
         temp_enc_data[ 0 ] = A;
         temp_enc_data[ 1 ] = B;
@@ -223,9 +224,9 @@ public class RC6 {
         System.out.println("aaaaaaaa");
         outputArr = convertIntToByte(temp_enc_data, encData.length);
 
-        for ( int i = 0 ; i < RC6.roundData.size() ; i++ ) {
+        for ( int i = 0 ; i < RC6.encryptionRoundData.size() ; i++ ) {
             System.out.println("Round " + i + ":");
-            System.out.println(roundData.get(i));
+            System.out.println(encryptionRoundData.get(i));
         }
 
         return outputArr;
@@ -251,23 +252,23 @@ public class RC6 {
         C = temp_data_decryption[ 2 ];
         D = temp_data_decryption[ 3 ];
 
-        RoundData rd = new RoundData();
-
-        rd.S0 = S[ 0 ];
-        rd.S1 = S[ 1 ];
-        rd.S2r2 = S[ 2 * rounds + 2 ];
-        rd.S2r3 = S[ 2 * rounds + 3 ];
+        DectyptionRoundData rd = new DectyptionRoundData();
 
         rd.Astart = A;
         rd.Bstart = B;
         rd.Cstart = C;
         rd.Dstart = D;
 
+        rd.S0 = S[ 0 ];
+        rd.S1 = S[ 1 ];
+        rd.S2r2 = S[ 2 * rounds + 2 ];
+        rd.S2r3 = S[ 2 * rounds + 3 ];
+
         C = C - S[ 2 * rounds + 3 ];
         A = A - S[ 2 * rounds + 2 ];
 
-        rd.BS0 = B;
-        rd.DS1 = D;
+        rd.AminS2r2 = A;
+        rd.CminS2r3 = C;
 
         int lgw = 5;
 
@@ -275,6 +276,136 @@ public class RC6 {
 
         for ( int i = rounds ; i >= 1 ; i-- ) {
 
+            if ( i == 20 ) {
+                temp = D;
+                D = C;
+                C = B;
+                B = A;
+                A = temp;
+
+                rd.Ashift = A;
+                rd.Bshift = B;
+                rd.Cshift = C;
+                rd.Dshift = D;
+
+                rd.S2i = S[ 2 * i ];
+                rd.S2i1 = S[ 2 * i + 1 ];
+
+                u = rotateLeft(D * ( 2 * D + 1 ), lgw);
+
+                rd.f2 = D * ( 2 * D + 1 );
+                rd.u = u;
+
+                t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
+                rd.f1 = B * ( 2 * B + 1 );
+                rd.t = t;
+                rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
+
+                C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
+                A = rotateRight(A - S[ 2 * i ], u) ^ t;
+
+                rd.AendRound = A;
+                rd.BendRound = B;
+                rd.CendRound = C;
+                rd.DendRound = D;
+                dectyptionRoundData.add(rd);
+
+
+            } else if ( i == 1 ) {
+                rd = new DectyptionRoundData();
+
+                rd.Astart = A;
+                rd.Bstart = B;
+                rd.Cstart = C;
+                rd.Dstart = D;
+
+                ////////////
+
+                temp = D;
+                D = C;
+                C = B;
+                B = A;
+                A = temp;
+
+                rd.Ashift = A;
+                rd.Bshift = B;
+                rd.Cshift = C;
+                rd.Dshift = D;
+
+                rd.S2i = S[ 2 * i ];
+                rd.S2i1 = S[ 2 * i + 1 ];
+
+                u = rotateLeft(D * ( 2 * D + 1 ), lgw);
+
+                rd.f2 = D * ( 2 * D + 1 );
+                rd.u = u;
+
+                t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
+                rd.f1 = B * ( 2 * B + 1 );
+                rd.t = t;
+                rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
+
+                C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
+                A = rotateRight(A - S[ 2 * i ], u) ^ t;
+
+                rd.AendRound = A;
+                rd.BendRound = B;
+                rd.CendRound = C;
+                rd.DendRound = D;
+
+
+                rd.S0 = S[ 0 ];
+                rd.S1 = S[ 1 ];
+
+
+            } else {
+                rd = new DectyptionRoundData();
+
+                rd.Astart = A;
+                rd.Bstart = B;
+                rd.Cstart = C;
+                rd.Dstart = D;
+
+                ////////////
+
+                temp = D;
+                D = C;
+                C = B;
+                B = A;
+                A = temp;
+
+                rd.Ashift = A;
+                rd.Bshift = B;
+                rd.Cshift = C;
+                rd.Dshift = D;
+
+                rd.S2i = S[ 2 * i ];
+                rd.S2i1 = S[ 2 * i + 1 ];
+
+                u = rotateLeft(D * ( 2 * D + 1 ), lgw);
+
+                rd.f2 = D * ( 2 * D + 1 );
+                rd.u = u;
+
+                t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
+                rd.f1 = B * ( 2 * B + 1 );
+                rd.t = t;
+                rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
+
+                C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
+                A = rotateRight(A - S[ 2 * i ], u) ^ t;
+
+                rd.AendRound = A;
+                rd.BendRound = B;
+                rd.CendRound = C;
+                rd.DendRound = D;
+                dectyptionRoundData.add(rd);
+
+            }
+            /*
             temp = D;
             D = C;
             C = B;
@@ -285,11 +416,19 @@ public class RC6 {
             t = rotateLeft(B * ( 2 * B + 1 ), lgw);
             C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
             A = rotateRight(A - S[ 2 * i ], u) ^ t;
-
+            */
         }
+
         D = D - S[ 1 ];
         B = B - S[ 0 ];
 
+        rd.Afinish = A;
+        rd.Bfinish = B;
+        rd.Cfinish = C;
+        rd.Dfinish = D;
+
+
+        dectyptionRoundData.add(rd);
 
         temp_data_decryption[ 0 ] = A;
         temp_data_decryption[ 1 ] = B;

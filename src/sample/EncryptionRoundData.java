@@ -1,6 +1,6 @@
-package util;
+package sample;
 
-public class RoundData {
+public class EncryptionRoundData {
     public int Astart, Afinish, Bstart, Bfinish, Cstart, Cfinish, Dstart, Dfinish;
     public int t, u, f1, f2;
     public int AxorT, CxorU;

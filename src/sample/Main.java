@@ -1,4 +1,4 @@
-package util;
+package sample;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -35,11 +35,12 @@ public class Main extends Application {
             }
         });
     }
-    //TODO prebaci dbljinu linije na 2
+    //TODO prebaci debljinu linije na 2
     @Override
     public void start(Stage primaryStage) throws Exception{
         Main.primaryStage = primaryStage;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/EnterParameters.fxml")));
+        //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/util/EnterParameters.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/util/EnterParameters.fxml")));
 
         primaryStage.setTitle("Enter parameters");
         primaryStage.setScene(new Scene(root, 600, 400));

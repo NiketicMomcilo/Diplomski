@@ -1,4 +1,4 @@
-package controllers.input;
+package controllers.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import util.Main;
+import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,14 +43,15 @@ public class EnterParameters implements Initializable {
 
     private void changeScene ( ) throws IOException {
         if ( this.Encryption.isSelected() ) {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/EnterInputDataEncryption.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/input/EnterInputDataEncryption.fxml")));
             Main.primaryStage.setTitle("Encryption");
             Main.primaryStage.setScene(new Scene(root, 600, 400));
         } else {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/EnterInputDataDecryption.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/input/EnterInputDataDecryption.fxml")));
             Main.primaryStage.setTitle("Decryption");
             Main.primaryStage.setScene(new Scene(root, 600, 400));
         }
 
     }
+
 }

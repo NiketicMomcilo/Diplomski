@@ -6,8 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import util.Main;
-import util.RC6;
+import sample.Main;
+import sample.RC6;
 
 import java.io.IOException;
 import java.net.URL;

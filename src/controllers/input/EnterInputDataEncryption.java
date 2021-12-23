@@ -7,8 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import util.Main;
-import util.RC6;
+import sample.Main;
+import sample.RC6;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,7 +52,7 @@ public class EnterInputDataEncryption implements Initializable {
     }
 
     public void nextScene ( ) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/FirstRound.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/FirstRound.fxml")));
         Main.primaryStage.setTitle("FirstRound");
         Main.primaryStage.setScene(new Scene(root, 773, 625));
     }

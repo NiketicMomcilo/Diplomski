@@ -8,8 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import util.Main;
-import util.RC6;
+import sample.Main;
+import sample.RC6;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,44 +45,44 @@ public class FirstRound implements Initializable {
 
         byte[] int_to_bytes;
         //Start
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Astart);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Astart);
         AStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Bstart);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Bstart);
         BStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Cstart);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Cstart);
         CStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Dstart);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dstart);
         DStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
         //Middle
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).AxorT);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).AxorT);
         AxorT.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).CxorU);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).CxorU);
         CxorU.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
 
         //Finish
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Afinish);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Afinish);
         AFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Bfinish);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Bfinish);
         BFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Cfinish);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Cfinish);
         CFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.roundData.get(Main.roundCounter).Dfinish);
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dfinish);
         DFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
     }
 
     public void next ( ) throws IOException {
         Main.roundCounter++;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/MiddleRound.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/MiddleRound.fxml")));
         Main.primaryStage.setTitle("FirstRound");
         Main.primaryStage.setScene(new Scene(root, 773, 625));
     }
