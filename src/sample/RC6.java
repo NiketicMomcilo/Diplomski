@@ -405,7 +405,7 @@ public class RC6 {
                 dectyptionRoundData.add(rd);
 
             }
-            /*
+            /* original algorithm
             temp = D;
             D = C;
             C = B;
