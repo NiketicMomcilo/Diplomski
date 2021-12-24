@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.MiddleRound">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.MiddleRound">
     <children>
         <Line endX="-65.0" endY="-83.0" layoutX="164.0" layoutY="130.0" startX="-65.0" startY="-9.0" strokeWidth="2.0" />
         <Group layoutX="485.0" layoutY="381.0" rotate="90.0">
@@ -94,7 +90,7 @@
             </children>
         </Group>
         <Group layoutX="472.0" layoutY="329.0" rotate="90.0" />
-        <Button fx:id="nextButton" layoutX="670.0" layoutY="578.0" mnemonicParsing="false" onAction="#goToNextRound" text="Next" />
+        <Button fx:id="nextButton" layoutX="670.0" layoutY="578.0" mnemonicParsing="false" onAction="#next" text="Next" />
         <Group layoutX="807.0" layoutY="79.0" />
         <Group layoutY="2.0" />
         <TextField fx:id="Bshift" alignment="CENTER" editable="false" layoutX="196.0" layoutY="233.0" prefHeight="24.0" prefWidth="128.0" />
@@ -298,6 +294,6 @@
         <Line endX="-150.5858154296875" endY="-9.0" layoutX="302.0" layoutY="394.0" startX="-150.5858154296875" startY="-32.0" strokeWidth="2.0" />
         <Line endX="237.4141845703125" endY="-28.0" layoutX="312.0" layoutY="414.0" startX="-161.0858154296875" startY="-28.0" strokeWidth="2.0" />
         <Line endX="89.0" endY="36.0" layoutX="410.0" layoutY="126.0" startX="89.0" startY="-76.0" strokeWidth="2.0" />
-        <Button fx:id="prevButton" layoutX="584.0" layoutY="578.0" mnemonicParsing="false" onAction="#goToPreviousRound" text="Previous" />
+        <Button fx:id="prevButton" layoutX="584.0" layoutY="578.0" mnemonicParsing="false" onAction="#prev" text="Previous" />
     </children>
 </AnchorPane>

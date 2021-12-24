@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
+//ab cd ef 3e c8 24 18 16 f0 d7 e4 89 20 ad 16 a1
+//1E 44 B6 A6 37 E8 3E 61 EC 30 F8 74 EB D4 01 67
 public class EnterInputDataEncryption implements Initializable {
     public TextField encryptionKeyTextField;
     public TextField sArrayTextField;

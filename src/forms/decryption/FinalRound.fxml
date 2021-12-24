@@ -293,7 +293,7 @@
         <Line endX="-150.5858154296875" endY="-9.0" layoutX="302.0" layoutY="394.0" startX="-150.5858154296875" startY="-32.0" strokeWidth="2.0" />
         <Line endX="237.4141845703125" endY="-28.0" layoutX="312.0" layoutY="414.0" startX="-161.0858154296875" startY="-28.0" strokeWidth="2.0" />
         <Line endX="89.0" endY="36.0" layoutX="410.0" layoutY="126.0" startX="89.0" startY="-76.0" strokeWidth="2.0" />
-        <Button fx:id="prevButton" layoutX="657.0" layoutY="578.0" mnemonicParsing="false" onAction="#goToPreviousRound" text="Previous" />
+        <Button fx:id="prevButton" layoutX="584.0" layoutY="578.0" mnemonicParsing="false" onAction="#goToPreviousRound" text="Previous" />
         <Group layoutX="242.0" layoutY="473.0">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />

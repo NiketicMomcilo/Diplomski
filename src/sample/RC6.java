@@ -276,7 +276,7 @@ public class RC6 {
 
         for ( int i = rounds ; i >= 1 ; i-- ) {
 
-            if ( i == 20 ) {
+            if ( i == 20 ) {//first round
                 temp = D;
                 D = C;
                 C = B;
@@ -312,7 +312,7 @@ public class RC6 {
                 dectyptionRoundData.add(rd);
 
 
-            } else if ( i == 1 ) {
+            } else if ( i == 1 ) {//final round
                 rd = new DectyptionRoundData();
 
                 rd.Astart = A;

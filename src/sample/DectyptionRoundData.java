@@ -15,4 +15,12 @@ public class DectyptionRoundData {
     public int Afinish, Bfinish, Cfinish, Dfinish;
     public int lgw = 5;
 
+    public String toString(){
+        return
+                "A ,B, C, D:" + Astart + "|" + Bstart + "|" + Cstart + "|" + Dstart + "\n" +
+                "A ,B, C, D:" + AendRound + "|" + BendRound + "|" + CendRound + "|" + DendRound + "\n" +
+                "A ,B, C, D:" + Afinish + "|" + Bfinish + "|" + Cfinish + "|" + Dfinish + "\n" +
+                "============================\n";
+    }
+
 }

@@ -35,7 +35,6 @@ public class Main extends Application {
             }
         });
     }
-    //TODO prebaci debljinu linije na 2
     @Override
     public void start(Stage primaryStage) throws Exception{
         Main.primaryStage = primaryStage;
@@ -47,6 +46,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //TODO indikator runde
+    //TODO UI, mogucnost da se vrati na pocetni meni, srediti pocetni meni
+    //TODO Ideja za pop ups
 
     public static void main(String[] args) {
         launch(args);
