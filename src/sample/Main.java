@@ -13,14 +13,16 @@ import java.util.Objects;
 public class Main extends Application {
 
     public static Stage primaryStage;
+    public static Stage popupStage;
+
     public static int roundCounter = 0;
 
     public static byte[] intToByteArray( int value){
         return new byte[] {
-                (byte)value,
-                (byte)(value >>> 8),
+                (byte)(value >>> 24),
                 (byte)(value >>> 16),
-                (byte)(value >>> 24)
+                (byte)(value >>> 8),
+                (byte)value
         };
     }
 
@@ -38,7 +40,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Main.primaryStage = primaryStage;
-        //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/util/EnterParameters.fxml")));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/util/EnterParameters.fxml")));
 
         primaryStage.setTitle("Enter parameters");
@@ -46,11 +47,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    //TODO indikator runde
-    //TODO UI, mogucnost da se vrati na pocetni meni, srediti pocetni meni
-    //TODO Ideja za pop ups
 
     public static void main(String[] args) {
+        System.out.println("java version: "+System.getProperty("java.version"));
+        System.out.println("javafx.version: " + System.getProperty("javafx.version"));
         launch(args);
     }
 }

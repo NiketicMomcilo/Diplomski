@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import sample.Main;
@@ -15,8 +16,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class FinalRound implements Initializable {
-
-
     public TextField AStart;
     public TextField BStart;
     public TextField CStart;
@@ -31,12 +30,13 @@ public class FinalRound implements Initializable {
     public TextField Ashift;
     public Circle f21;
     public Circle f211;
+    public Label roundCounter;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
 
         Main.deselect(AStart);
-
+        roundCounter.setText(String.valueOf(Main.roundCounter));
         //Numbers displayed Hex signed 2's complement
         byte[] int_to_bytes;
 
@@ -81,7 +81,6 @@ public class FinalRound implements Initializable {
         DFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
     }
-
 
     public void goToPreviousRound ( ) throws IOException {
         Main.roundCounter--;

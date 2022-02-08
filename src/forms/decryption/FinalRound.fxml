@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.FinalRound">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.FinalRound">
     <children>
-        <Line endX="-65.0" endY="-83.0" layoutX="164.0" layoutY="130.0" startX="-65.0" startY="-9.0" strokeWidth="2.0" />
         <Group layoutX="485.0" layoutY="381.0" rotate="90.0">
             <children>
                 <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
@@ -95,7 +98,7 @@
         <TextField fx:id="Bshift" alignment="CENTER" editable="false" layoutX="196.0" layoutY="233.0" prefHeight="24.0" prefWidth="128.0" />
         <TextField fx:id="Cshift" alignment="CENTER" editable="false" layoutX="435.0" layoutY="233.0" prefHeight="24.0" prefWidth="128.0" />
         <TextField fx:id="Dshift" alignment="CENTER" editable="false" layoutX="594.0" layoutY="233.0" prefHeight="24.0" prefWidth="128.0" />
-        <Group layoutX="85.0" layoutY="204.0" rotate="90.0">
+        <Group layoutX="46.0" layoutY="204.0" rotate="90.0">
             <children>
                 <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
                 <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
@@ -103,9 +106,6 @@
             </children>
         </Group>
         <TextField fx:id="Ashift" alignment="CENTER" editable="false" layoutX="36.0" layoutY="233.0" prefHeight="24.0" prefWidth="128.0" />
-        <Line endX="-64.0" endY="93.08578491210938" layoutX="324.0" layoutY="92.0" startX="-64.0" startY="-42.0" strokeWidth="2.0" />
-        <Line endX="104.5" endY="-0.5" layoutX="155.0" layoutY="187.0" startX="-54.0" startY="-0.5" strokeWidth="2.0" />
-        <Line endX="124.0" endY="6.0" layoutX="375.0" layoutY="188.0" startX="-113.0" startY="6.0" strokeWidth="2.0" />
         <Group layoutX="246.0" layoutY="204.0" rotate="90.0">
             <children>
                 <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
@@ -113,7 +113,6 @@
                 <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
             </children>
         </Group>
-        <Line endX="-84.0" endY="-12.414215087890625" layoutX="583.0" layoutY="205.0" startX="-84.0" startY="-42.0" strokeWidth="2.0" />
         <Group layoutX="483.0" layoutY="204.0" rotate="90.0">
             <children>
                 <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
@@ -121,20 +120,6 @@
                 <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
             </children>
         </Group>
-        <Line endX="59.0" layoutX="599.0" layoutY="201.0" startX="-100.0" strokeWidth="2.0" />
-        <Line endX="-47.0" endY="71.0" layoutX="705.0" layoutY="130.0" startX="-47.0" startY="-80.0" strokeWidth="2.0" />
-        <Line endX="-74.0" endY="-9.0" layoutX="173.0" layoutY="146.0" startX="-74.0" startY="-23.0" strokeWidth="2.0" />
-        <Group layoutX="675.0" layoutY="206.5" rotate="90.0">
-            <children>
-                <Line endX="30.0" layoutY="13.207107543945312" startX="5.0" strokeWidth="2.0" />
-                <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
-                <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
-            </children>
-        </Group>
-        <Line endX="-109.0" endY="-136.0" layoutX="370.0" layoutY="330.0" startX="-108.79290771484375" startY="-129.20709228515625" strokeWidth="2.0" />
-        <Line endX="-147.0" endY="-143.5" layoutX="247.0" layoutY="330.0" startX="-147.0" startY="-128.20709228515625" strokeWidth="2.0" />
-        <Line endX="524.2071533203125" layoutX="167.0" layoutY="138.0" startX="-68.0" strokeWidth="2.0" />
-        <Line endX="153.2071533203125" endY="-190.0" layoutX="539.0" layoutY="329.0" startX="153.5" startY="-124.0" strokeWidth="2.0" />
         <Group layoutX="85.0" layoutY="259.0" rotate="90.0">
             <children>
                 <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
@@ -292,7 +277,6 @@
         </Group>
         <Line endX="-150.5858154296875" endY="-9.0" layoutX="302.0" layoutY="394.0" startX="-150.5858154296875" startY="-32.0" strokeWidth="2.0" />
         <Line endX="237.4141845703125" endY="-28.0" layoutX="312.0" layoutY="414.0" startX="-161.0858154296875" startY="-28.0" strokeWidth="2.0" />
-        <Line endX="89.0" endY="36.0" layoutX="410.0" layoutY="126.0" startX="89.0" startY="-76.0" strokeWidth="2.0" />
         <Button fx:id="prevButton" layoutX="584.0" layoutY="578.0" mnemonicParsing="false" onAction="#goToPreviousRound" text="Previous" />
         <Group layoutX="242.0" layoutY="473.0">
             <children>
@@ -338,5 +322,34 @@
                 <Font size="15.0" />
             </font>
         </Label>
+        <Label layoutX="36.0" layoutY="581.0" prefHeight="20.0" prefWidth="63.0" text="Round:">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label fx:id="roundCounter" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="581.0" prefHeight="20.0" prefWidth="25.0" text="0">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+      <Group layoutX="645.0" layoutY="204.0" rotate="90.0">
+         <children>
+            <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
+            <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
+            <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
+         </children>
+      </Group>
+      <Line endX="-121.79290771484375" endY="-67.0" layoutX="183.0" layoutY="165.0" startX="-121.79290771484375" startY="35.79290771484375" strokeWidth="2.0" />
+      <Line endX="426.5" endY="-6.0" layoutX="231.0" layoutY="103.0" startX="-168.79290771484375" startY="-6.0" strokeWidth="2.0" />
+      <Line endX="-101.0" endY="-41.5" layoutX="759.0" layoutY="139.0" startX="-101.0" startY="-89.0" strokeWidth="2.0" />
+      <Line endX="-144.0" endY="14.0" layoutX="244.0" layoutY="149.0" startX="-144.0" startY="-101.0" strokeWidth="2.0" />
+      <Line endX="59.0" layoutX="201.0" layoutY="164.0" startX="-101.0" strokeWidth="2.0" />
+      <Line endX="-168.0" endY="1.0" layoutX="429.0" layoutY="163.0" startX="-168.0" startY="37.79290771484375" strokeWidth="2.0" />
+      <Line endX="-127.0" endY="15.0" layoutX="387.0" layoutY="131.0" startX="-127.0" startY="-81.0" strokeWidth="2.0" />
+      <Line endX="137.0" layoutX="360.0" layoutY="147.0" startX="-100.0" strokeWidth="2.0" />
+      <Line endX="-79.0" endY="-26.5" layoutX="577.0" layoutY="174.0" startX="-79.0" startY="26.79290771484375" strokeWidth="2.0" />
+      <Line endX="-122.0" endY="-10.0" layoutX="621.0" layoutY="136.0" startX="-122.0" startY="-86.0" strokeWidth="2.0" />
+      <Line endX="58.0" endY="-0.5" layoutX="600.0" layoutY="127.0" startX="-101.0" startY="-0.5" strokeWidth="2.0" />
+      <Line endX="-14.0" endY="-37.0" layoutX="674.0" layoutY="163.0" startX="-14.0" startY="37.79290771484375" strokeWidth="2.0" />
     </children>
 </AnchorPane>

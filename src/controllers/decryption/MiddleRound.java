@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sample.Main;
 import sample.RC6;
@@ -29,12 +30,13 @@ public class MiddleRound implements Initializable {
     public TextField Cshift;
     public TextField Dshift;
     public TextField Ashift;
+    public Label roundCounter;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
 
         Main.deselect(AStart);
-
+        roundCounter.setText(String.valueOf(Main.roundCounter));
         //Numbers displayed Hex signed 2's complement
         byte[] int_to_bytes;
 

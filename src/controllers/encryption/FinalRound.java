@@ -1,11 +1,17 @@
 package controllers.encryption;
 
+import controllers.encryption.popups.AddPopup;
+import controllers.encryption.popups.FPopup;
+import controllers.encryption.popups.ShiftLeftLgWordPopup;
+import controllers.encryption.popups.XORPopup;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.Main;
 import sample.RC6;
 
@@ -27,12 +33,13 @@ public class FinalRound implements Initializable {
     public TextField BFinish;
     public TextField CFinish;
     public TextField DFinish;
+    public Label roundCounter;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
 
         Main.deselect(AStart);
-
+        roundCounter.setText(String.valueOf(Main.roundCounter));
         //Numbers displayed Hex signed 2's complement
         byte[] int_to_bytes;
         //Start
@@ -78,6 +85,156 @@ public class FinalRound implements Initializable {
         Main.primaryStage.setScene(new Scene(root, 773, 625));
 
     }
+
+    public void showUpperLeftXOR() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XORPopup.left = 0;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/XORPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showUpperRightXOR() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XORPopup.left = 1;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/XORPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showUpperLeftSL() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWordPopup.left = 0;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Shift left");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+    public void showUpperRightSL() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWordPopup.left = 1;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Shift left");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showDownLeftSL() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWordPopup.left = 0;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftU5.fxml")));
+        Main.popupStage.setTitle("Shift left U ");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+    public void showDownRightSL() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWordPopup.left = 1;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftT5.fxml")));
+        Main.popupStage.setTitle("Shift left T");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+    public void showAdd2i() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2i";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showAdd2i1() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2i1";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showUpperLeftF() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = 0;
+        FPopup.firstRound = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showUpperRightF() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = 1;
+        FPopup.firstRound = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showAdd2r2() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2r2";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showAdd2r3() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2r3";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
 
 
 }

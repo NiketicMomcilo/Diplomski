@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import sample.Main;
@@ -38,11 +39,12 @@ public class FirstRound implements Initializable {
     public TextField Dshift;
     public Circle f21;
     public Circle f211;
+    public Label roundCounter;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
         Main.deselect(AStart);
-
+        roundCounter.setText(String.valueOf(Main.roundCounter));
         byte[] int_to_bytes;
 
         int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Astart);
