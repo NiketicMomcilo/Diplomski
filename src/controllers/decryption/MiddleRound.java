@@ -1,5 +1,9 @@
 package controllers.decryption;
 
+import controllers.decryption.popups.FPopup;
+import controllers.decryption.popups.MinusPopup;
+import controllers.decryption.popups.ShiftLeftLgWord;
+import controllers.decryption.popups.XorPopup;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.Main;
 import sample.RC6;
 
@@ -91,7 +96,7 @@ public class MiddleRound implements Initializable {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
             Main.primaryStage.setTitle("MiddleRound");
         }
-        Main.primaryStage.setScene(new Scene(root, 773, 625));
+        Main.primaryStage.setScene(new Scene(root, 773, 683));
 
     }
 
@@ -106,7 +111,119 @@ public class MiddleRound implements Initializable {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
             Main.primaryStage.setTitle("MiddleRound");
         }
-        Main.primaryStage.setScene(new Scene(root, 773, 625));
+        Main.primaryStage.setScene(new Scene(root, 773, 683));
+    }
+    public void showMinusDownLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        MinusPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
     }
 
+    public void showMinusDownRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        MinusPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+    public void showShiftleftLgWordLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWord.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showShiftleftLgWordRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWord.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void shiftRightModT() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightT5Popup.fxml")));
+        Main.popupStage.setTitle("Shift right");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void shiftRightModU() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightU5Popup.fxml")));
+        Main.popupStage.setTitle("Shift right");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showLeftF() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showRightF() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showXorLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XorPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showXorRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XorPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
 }

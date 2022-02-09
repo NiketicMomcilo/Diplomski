@@ -17,8 +17,7 @@ import sample.RC6;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FinalRound implements Initializable {
 
@@ -34,6 +33,10 @@ public class FinalRound implements Initializable {
     public TextField CFinish;
     public TextField DFinish;
     public Label roundCounter;
+    public TextField AFinishRotate;
+    public TextField BFinishRotate;
+    public TextField CFinishRotate;
+    public TextField DFinishRotate;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
@@ -75,6 +78,50 @@ public class FinalRound implements Initializable {
 
         int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dfinish);
         DFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+
+        //Finish rotate
+        byte temp;
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Afinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        AFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Bfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        BFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Cfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        CFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        DFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+
+
+
+
     }
 
     public void loadPrevious ( ) throws IOException {

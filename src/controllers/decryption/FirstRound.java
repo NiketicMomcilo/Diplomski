@@ -1,5 +1,9 @@
 package controllers.decryption;
 
+import controllers.decryption.popups.FPopup;
+import controllers.decryption.popups.MinusPopup;
+import controllers.decryption.popups.ShiftLeftLgWord;
+import controllers.decryption.popups.XorPopup;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -8,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import sample.Main;
 import sample.RC6;
 
@@ -47,55 +52,67 @@ public class FirstRound implements Initializable {
         roundCounter.setText(String.valueOf(Main.roundCounter));
         byte[] int_to_bytes;
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Astart);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Astart);
         AStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Bstart);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Bstart);
         BStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Cstart);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Cstart);
         CStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Dstart);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Dstart);
         DStart.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
 
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).AminS2r2);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).AminS2r2);
         AminS2r2.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).CminS2r3);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).CminS2r3);
         CminS2r3.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
 
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Ashift);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Ashift);
         Ashift.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Bshift);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Bshift);
         Bshift.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Cshift);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Cshift);
         Cshift.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).Dshift);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).Dshift);
         Dshift.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
 
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).AendRound);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).AendRound);
         AFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).BendRound);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).BendRound);
         BFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).CendRound);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).CendRound);
         CFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
-        int_to_bytes = Main.intToByteArray(RC6.dectyptionRoundData.get(Main.roundCounter).DendRound);
+        int_to_bytes = Main.intToByteArray
+                (RC6.dectyptionRoundData.get(Main.roundCounter).DendRound);
         DFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
-
-
 
     }
 
@@ -103,6 +120,145 @@ public class FirstRound implements Initializable {
         Main.roundCounter++;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
         Main.primaryStage.setTitle("FirstRound");
-        Main.primaryStage.setScene(new Scene(root, 773, 625));
+        Main.primaryStage.setScene(new Scene(root, 773, 683));
     }
+
+    public void showMinus2r2() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/Minus2r2Popup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showMinus2r3() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/Minus2r3Popup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showMinusDownLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        MinusPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showMinusDownRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        MinusPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+    public void showShiftleftLgWordLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWord.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showShiftleftLgWordRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        ShiftLeftLgWord.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
+        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showRightModT() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightT5Popup.fxml")));
+        Main.popupStage.setTitle("Shift right");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showRightModU() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightU5Popup.fxml")));
+        Main.popupStage.setTitle("Shift right");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showLeftF() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showRightF() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        FPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
+        Main.popupStage.setTitle("F");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+    public void showXorLeft() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XorPopup.left = true;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showXorRight() throws IOException {
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        XorPopup.left = false;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
+        Main.popupStage.setTitle("XOR");
+        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+
+
 }

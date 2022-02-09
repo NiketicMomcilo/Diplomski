@@ -25,6 +25,15 @@ public class Main extends Application {
                 (byte)value
         };
     }
+    public static byte[] intToByteArray2( int value){
+        return new byte[] {
+                (byte)value,
+                (byte)(value >>> 8),
+                (byte)(value >>> 16),
+                (byte)(value >>> 24)
+        };
+    }
+
 
     public static void deselect( TextField textField) {
         Platform.runLater(() -> {
@@ -47,7 +56,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
+    //TODO ShiftU and ShiftL
     public static void main(String[] args) {
         System.out.println("java version: "+System.getProperty("java.version"));
         System.out.println("javafx.version: " + System.getProperty("javafx.version"));

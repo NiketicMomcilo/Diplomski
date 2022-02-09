@@ -8,6 +8,7 @@ public class DectyptionRoundData {
 
     public int Ashift, Bshift, Cshift, Dshift;
     public int S2i, S2i1, t,u, f1, f2;
+    public int AshiftMinS2i,CshiftMinS2i1;
     public int CshiftMinS2r3RotT, AshiftMinS2iRotU;
     public int AendRound, BendRound, CendRound, DendRound;
 

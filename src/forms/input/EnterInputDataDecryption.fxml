@@ -3,124 +3,68 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="controllers.input.EnterInputDataDecryption" xmlns:fx="http://javafx.com/fxml/1" prefHeight="550.0" prefWidth="850.0"
-            xmlns="http://javafx.com/javafx/11.0.1" >
-   <Button fx:id="nextButton" layoutX="486.0" layoutY="482.0" mnemonicParsing="false" onAction="#nextScene"
-           prefHeight="26.0" prefWidth="83.0" text="Next"/>
-   <Button fx:id="setDefaultEncryptionDataId" layoutX="225.0" layoutY="483.0" mnemonicParsing="false"
-           onAction="#setDefaultDecryptionData" text="Default data"/>
-   <Button fx:id="generateKeyid" layoutX="353.0" layoutY="483.0" mnemonicParsing="false" onAction="#generateKey"
-           text="Generate key"/>
-   <Label layoutX="39.0" layoutY="35.0"/>
-   <Label layoutX="39.0" layoutY="35.0" text="Key: "/>
-   <Label layoutX="39.0" layoutY="115.0" text="S array:"/>
-   <Label layoutX="40.0" layoutY="360.0" text="L array:"/>
-   <Label layoutX="39.0" layoutY="74.0" text="Cyphertext:"/>
-   <TextField fx:id="decryptionKeyTextField" layoutX="129.0" layoutY="30.0" prefHeight="26.0" prefWidth="662.0"/>
-   <TextField fx:id="ciphertextTextField" layoutX="129.0" layoutY="69.0" prefHeight="26.0" prefWidth="662.0"/>
-   <TextField fx:id="S0" alignment="CENTER" editable="false" layoutX="39.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S1" alignment="CENTER" editable="false" layoutX="137.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S2" alignment="CENTER" editable="false" layoutX="234.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S3" alignment="CENTER" editable="false" layoutX="331.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S8" alignment="CENTER" editable="false" layoutX="39.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S9" alignment="CENTER" editable="false" layoutX="137.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S10" alignment="CENTER" editable="false" layoutX="234.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S11" alignment="CENTER" editable="false" layoutX="331.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S4" alignment="CENTER" editable="false" layoutX="428.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S5" alignment="CENTER" editable="false" layoutX="527.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S6" alignment="CENTER" editable="false" layoutX="625.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S7" alignment="CENTER" editable="false" layoutX="723.0" layoutY="139.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S12" alignment="CENTER" editable="false" layoutX="428.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S13" alignment="CENTER" editable="false" layoutX="527.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S14" alignment="CENTER" editable="false" layoutX="625.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S15" alignment="CENTER" editable="false" layoutX="723.0" layoutY="172.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S16" alignment="CENTER" editable="false" layoutX="39.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S17" alignment="CENTER" editable="false" layoutX="137.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S18" alignment="CENTER" editable="false" layoutX="234.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S19" alignment="CENTER" editable="false" layoutX="331.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S24" alignment="CENTER" editable="false" layoutX="39.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S25" alignment="CENTER" editable="false" layoutX="137.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S26" alignment="CENTER" editable="false" layoutX="234.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S27" alignment="CENTER" editable="false" layoutX="331.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S20" alignment="CENTER" editable="false" layoutX="428.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S21" alignment="CENTER" editable="false" layoutX="527.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S22" alignment="CENTER" editable="false" layoutX="625.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S23" alignment="CENTER" editable="false" layoutX="723.0" layoutY="208.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S28" alignment="CENTER" editable="false" layoutX="428.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S29" alignment="CENTER" editable="false" layoutX="527.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S30" alignment="CENTER" editable="false" layoutX="625.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S31" alignment="CENTER" editable="false" layoutX="723.0" layoutY="241.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S32" alignment="CENTER" editable="false" layoutX="39.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S33" alignment="CENTER" editable="false" layoutX="137.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S34" alignment="CENTER" editable="false" layoutX="234.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S35" alignment="CENTER" editable="false" layoutX="331.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S36" alignment="CENTER" editable="false" layoutX="428.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S37" alignment="CENTER" editable="false" layoutX="527.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S38" alignment="CENTER" editable="false" layoutX="625.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S39" alignment="CENTER" editable="false" layoutX="723.0" layoutY="275.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S40" alignment="CENTER" editable="false" layoutX="235.0" layoutY="308.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S41" alignment="CENTER" editable="false" layoutX="333.0" layoutY="308.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S42" alignment="CENTER" editable="false" layoutX="430.0" layoutY="308.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="S43" alignment="CENTER" editable="false" layoutX="527.0" layoutY="308.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L0" alignment="CENTER" editable="false" layoutX="41.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L1" alignment="CENTER" editable="false" layoutX="139.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L2" alignment="CENTER" editable="false" layoutX="236.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L3" alignment="CENTER" editable="false" layoutX="333.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L4" alignment="CENTER" editable="false" layoutX="430.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L5" alignment="CENTER" editable="false" layoutX="529.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L6" alignment="CENTER" editable="false" layoutX="627.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <TextField fx:id="L7" alignment="CENTER" editable="false" layoutX="725.0" layoutY="389.0" prefHeight="26.0"
-              prefWidth="90.0"/>
-   <Label fx:id="errorLabel" alignment="CENTER" layoutX="46.0" layoutY="433.0" prefHeight="16.0" prefWidth="749.0"/>
+<AnchorPane prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.input.EnterInputDataDecryption">
+   <Button fx:id="nextButton" layoutX="486.0" layoutY="482.0" mnemonicParsing="false"  onMouseClicked="#nextScene" prefHeight="26.0" prefWidth="83.0" text="Next" />
+   <Button fx:id="setDefaultEncryptionDataId" layoutX="225.0" layoutY="483.0" mnemonicParsing="false" onAction="#setDefaultDecryptionData" text="Default data" />
+   <Button fx:id="generateKeyid" layoutX="353.0" layoutY="483.0" mnemonicParsing="false" onAction="#generateKey" text="Generate key" />
+   <Label layoutX="39.0" layoutY="35.0" />
+   <Label layoutX="39.0" layoutY="35.0" text="Key: " />
+   <Label layoutX="39.0" layoutY="115.0" text="S array:" />
+   <Label layoutX="40.0" layoutY="360.0" text="L array:" />
+   <Label layoutX="39.0" layoutY="74.0" text="Cyphertext:" />
+   <TextField fx:id="decryptionKeyTextField" layoutX="129.0" layoutY="30.0" prefHeight="26.0" prefWidth="662.0" />
+   <TextField fx:id="ciphertextTextField" layoutX="129.0" layoutY="69.0" prefHeight="26.0" prefWidth="662.0" />
+   <TextField fx:id="S0" alignment="CENTER" editable="false" layoutX="39.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S1" alignment="CENTER" editable="false" layoutX="137.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S2" alignment="CENTER" editable="false" layoutX="234.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S3" alignment="CENTER" editable="false" layoutX="331.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S8" alignment="CENTER" editable="false" layoutX="39.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S9" alignment="CENTER" editable="false" layoutX="137.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S10" alignment="CENTER" editable="false" layoutX="234.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S11" alignment="CENTER" editable="false" layoutX="331.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S4" alignment="CENTER" editable="false" layoutX="428.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S5" alignment="CENTER" editable="false" layoutX="527.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S6" alignment="CENTER" editable="false" layoutX="625.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S7" alignment="CENTER" editable="false" layoutX="723.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S12" alignment="CENTER" editable="false" layoutX="428.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S13" alignment="CENTER" editable="false" layoutX="527.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S14" alignment="CENTER" editable="false" layoutX="625.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S15" alignment="CENTER" editable="false" layoutX="723.0" layoutY="172.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S16" alignment="CENTER" editable="false" layoutX="39.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S17" alignment="CENTER" editable="false" layoutX="137.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S18" alignment="CENTER" editable="false" layoutX="234.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S19" alignment="CENTER" editable="false" layoutX="331.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S24" alignment="CENTER" editable="false" layoutX="39.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S25" alignment="CENTER" editable="false" layoutX="137.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S26" alignment="CENTER" editable="false" layoutX="234.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S27" alignment="CENTER" editable="false" layoutX="331.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S20" alignment="CENTER" editable="false" layoutX="428.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S21" alignment="CENTER" editable="false" layoutX="527.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S22" alignment="CENTER" editable="false" layoutX="625.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S23" alignment="CENTER" editable="false" layoutX="723.0" layoutY="208.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S28" alignment="CENTER" editable="false" layoutX="428.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S29" alignment="CENTER" editable="false" layoutX="527.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S30" alignment="CENTER" editable="false" layoutX="625.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S31" alignment="CENTER" editable="false" layoutX="723.0" layoutY="241.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S32" alignment="CENTER" editable="false" layoutX="39.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S33" alignment="CENTER" editable="false" layoutX="137.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S34" alignment="CENTER" editable="false" layoutX="234.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S35" alignment="CENTER" editable="false" layoutX="331.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S36" alignment="CENTER" editable="false" layoutX="428.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S37" alignment="CENTER" editable="false" layoutX="527.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S38" alignment="CENTER" editable="false" layoutX="625.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S39" alignment="CENTER" editable="false" layoutX="723.0" layoutY="275.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S40" alignment="CENTER" editable="false" layoutX="235.0" layoutY="308.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S41" alignment="CENTER" editable="false" layoutX="333.0" layoutY="308.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S42" alignment="CENTER" editable="false" layoutX="430.0" layoutY="308.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="S43" alignment="CENTER" editable="false" layoutX="527.0" layoutY="308.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L0" alignment="CENTER" editable="false" layoutX="41.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L1" alignment="CENTER" editable="false" layoutX="139.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L2" alignment="CENTER" editable="false" layoutX="236.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L3" alignment="CENTER" editable="false" layoutX="333.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L4" alignment="CENTER" editable="false" layoutX="430.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L5" alignment="CENTER" editable="false" layoutX="529.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L6" alignment="CENTER" editable="false" layoutX="627.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <TextField fx:id="L7" alignment="CENTER" editable="false" layoutX="725.0" layoutY="389.0" prefHeight="26.0" prefWidth="90.0" />
+   <Label fx:id="errorLabel" alignment="CENTER" layoutX="46.0" layoutY="433.0" prefHeight="16.0" prefWidth="749.0" />
 </AnchorPane>

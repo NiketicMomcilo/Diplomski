@@ -222,13 +222,15 @@ public class RC6 {
         rd.S1 = S[ 1 ];
         rd.S2r2 = S[ 2 * rounds + 2 ];
         rd.S2r3 = S[ 2 * rounds + 3 ];
+        System.out.println(Integer.toHexString(rd.S2r2));
+        System.out.println(Integer.toHexString(rd.Astart));
 
         C = C - S[ 2 * rounds + 3 ];
         A = A - S[ 2 * rounds + 2 ];
 
         rd.AminS2r2 = A;
         rd.CminS2r3 = C;
-
+        System.out.println(Integer.toHexString(rd.AminS2r2));
         int lgw = 5;
         byte[] outputArr;
         for ( int i = rounds ; i >= 1 ; i-- ) {
@@ -248,9 +250,11 @@ public class RC6 {
                 rd.f2 = D * ( 2 * D + 1 );
                 rd.u = u;
                 t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2i1 = C - S[ 2 * i + 1 ];
                 rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
                 rd.f1 = B * ( 2 * B + 1 );
                 rd.t = t;
+                rd.AshiftMinS2i = A - S[ 2 * i ];
                 rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
                 C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
                 A = rotateRight(A - S[ 2 * i ], u) ^ t;
@@ -280,9 +284,11 @@ public class RC6 {
                 rd.f2 = D * ( 2 * D + 1 );
                 rd.u = u;
                 t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2i1 = C - S[ 2 * i + 1 ];
                 rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
                 rd.f1 = B * ( 2 * B + 1 );
                 rd.t = t;
+                rd.AshiftMinS2i = A - S[ 2 * i ];
                 rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
                 C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
                 A = rotateRight(A - S[ 2 * i ], u) ^ t;
@@ -315,9 +321,11 @@ public class RC6 {
                 rd.f2 = D * ( 2 * D + 1 );
                 rd.u = u;
                 t = rotateLeft(B * ( 2 * B + 1 ), lgw);
+                rd.CshiftMinS2i1 = C - S[ 2 * i + 1 ];
                 rd.CshiftMinS2r3RotT = rotateRight(C - S[ 2 * i + 1 ], t);
                 rd.f1 = B * ( 2 * B + 1 );
                 rd.t = t;
+                rd.AshiftMinS2i = A - S[ 2 * i ];
                 rd.AshiftMinS2iRotU = rotateRight(A - S[ 2 * i ], u);
                 C = rotateRight(C - S[ 2 * i + 1 ], t) ^ u;
                 A = rotateRight(A - S[ 2 * i ], u) ^ t;
