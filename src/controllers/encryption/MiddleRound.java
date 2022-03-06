@@ -36,6 +36,7 @@ public class MiddleRound implements Initializable {
     public TextField DFinish;
     public Label roundCounter;
 
+    public static final int WIDTH = 520,HEIGHT_1= 270, HEIGHT_2 = 204;
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
 
@@ -113,7 +114,7 @@ public class MiddleRound implements Initializable {
         XORPopup.left = 0;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/XORPopup.fxml")));
         Main.popupStage.setTitle("XOR");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -124,7 +125,7 @@ public class MiddleRound implements Initializable {
         XORPopup.left = 1;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/XORPopup.fxml")));
         Main.popupStage.setTitle("XOR");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -136,7 +137,7 @@ public class MiddleRound implements Initializable {
         ShiftLeftLgWordPopup.left = 0;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftLgWordPopup.fxml")));
         Main.popupStage.setTitle("Shift left");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -149,7 +150,7 @@ public class MiddleRound implements Initializable {
         ShiftLeftLgWordPopup.left = 1;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftLgWordPopup.fxml")));
         Main.popupStage.setTitle("Shift left");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -160,7 +161,7 @@ public class MiddleRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftU5.fxml")));
         Main.popupStage.setTitle("Shift Left U5");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -172,7 +173,7 @@ public class MiddleRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftT5.fxml")));
         Main.popupStage.setTitle("Shift Left T5");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -187,7 +188,7 @@ public class MiddleRound implements Initializable {
         AddPopup.code = "S2i";
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
         Main.popupStage.setTitle("Add");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -199,7 +200,7 @@ public class MiddleRound implements Initializable {
         AddPopup.code = "S2i1";
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
         Main.popupStage.setTitle("Add");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -212,7 +213,7 @@ public class MiddleRound implements Initializable {
         FPopup.firstRound = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/FPopup.fxml")));
         Main.popupStage.setTitle("F");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -225,7 +226,7 @@ public class MiddleRound implements Initializable {
         FPopup.firstRound = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/FPopup.fxml")));
         Main.popupStage.setTitle("F");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }

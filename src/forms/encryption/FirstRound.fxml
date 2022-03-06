@@ -231,7 +231,7 @@
    </Group>
    <Group layoutX="433.0" layoutY="327.0" onMouseClicked="#showAdd2i1" translateY="-2.0">
       <children>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showAdd2i" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showAdd2i1" stroke="BLACK" strokeType="INSIDE" width="36.0" />
          <Line endX="-72.0" layoutX="104.0" layoutY="18.0" startX="-100.0" strokeWidth="2.0" />
          <Line endX="-100.0" endY="25.0" layoutX="118.0" layoutY="5.0" startX="-100.0" startY="1.0" strokeWidth="2.0" />
       </children>

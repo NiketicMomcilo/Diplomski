@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="773.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.FirstRound">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="773.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.decryption.FirstRound">
 <children>
     <Group layoutX="485.0" layoutY="381.0" rotate="90.0">
         <children>
@@ -94,13 +90,13 @@
         </children>
     </Group>
     <Group layoutX="890.0" layoutY="267.0" rotate="90.0" translateX="2.0" />
-    <Label fx:id="sssss" layoutX="124.0" layoutY="84.0" text="S[2r+2]">
+    <Label fx:id="sssss" layoutX="16.0" layoutY="84.0" text="S[2r+2]">
         <font>
             <Font size="16.0" />
         </font>
     </Label>
     <Group layoutX="648.0" layoutY="78.0" translateX="-1.0" />
-    <Label layoutX="525.0" layoutY="84.0" text="S[2r+3]">
+    <Label layoutX="418.0" layoutY="84.0" text="S[2r+3]">
         <font>
             <Font size="16.0" />
         </font>

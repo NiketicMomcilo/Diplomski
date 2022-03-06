@@ -46,6 +46,8 @@ public class FirstRound implements Initializable {
     public Circle f211;
     public Label roundCounter;
 
+    public static final int WIDTH = 520,HEIGHT_1= 270, HEIGHT_2 = 204;
+
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
         Main.deselect(AStart);
@@ -129,7 +131,7 @@ public class FirstRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/Minus2r2Popup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -139,7 +141,7 @@ public class FirstRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/Minus2r3Popup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -151,7 +153,7 @@ public class FirstRound implements Initializable {
         MinusPopup.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -163,7 +165,7 @@ public class FirstRound implements Initializable {
         MinusPopup.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/MinusPopup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -176,7 +178,7 @@ public class FirstRound implements Initializable {
         ShiftLeftLgWord.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -187,7 +189,7 @@ public class FirstRound implements Initializable {
         ShiftLeftLgWord.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
         Main.popupStage.setTitle("Minus");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -197,7 +199,7 @@ public class FirstRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightT5Popup.fxml")));
         Main.popupStage.setTitle("Shift right");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -207,7 +209,7 @@ public class FirstRound implements Initializable {
         }
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftRightU5Popup.fxml")));
         Main.popupStage.setTitle("Shift right");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -219,7 +221,7 @@ public class FirstRound implements Initializable {
         FPopup.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
         Main.popupStage.setTitle("F");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -230,7 +232,7 @@ public class FirstRound implements Initializable {
         FPopup.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/FPopup.fxml")));
         Main.popupStage.setTitle("F");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -241,7 +243,7 @@ public class FirstRound implements Initializable {
         XorPopup.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
         Main.popupStage.setTitle("XOR");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
@@ -253,7 +255,7 @@ public class FirstRound implements Initializable {
         XorPopup.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/XorPopup.fxml")));
         Main.popupStage.setTitle("XOR");
-        Main.popupStage.setScene(new Scene(root, 521,204));
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }

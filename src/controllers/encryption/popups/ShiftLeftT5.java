@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 public class ShiftLeftT5 implements Initializable {
     public TextField shiftLeftStart;
     public TextField shiftLeftEnd;
+    public TextField shiftLeftShiftT;
 
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
@@ -20,6 +21,9 @@ public class ShiftLeftT5 implements Initializable {
 
         int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).CxorUrotT);
         shiftLeftEnd.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).t);
+        shiftLeftShiftT.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
 
     }
 }

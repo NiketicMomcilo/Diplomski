@@ -1,6 +1,7 @@
 package controllers.decryption.popups;
 
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sample.Main;
 import sample.RC6;
@@ -12,6 +13,8 @@ public class FPopup implements Initializable {
     public TextField fStart;
     public TextField fEnd;
     public static boolean left;
+
+
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
         byte[] int_to_bytes;

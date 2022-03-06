@@ -48,7 +48,7 @@
          </children>
       </Group>
       <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="158.0" onMouseClicked="#showUpperLeftSL" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="DODGERBLUE" layoutX="214.0" layoutY="158.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="DODGERBLUE" layoutX="214.0" layoutY="158.0" onMouseClicked="#showUpperLeftF" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="-74.0" layoutX="333.0" layoutY="158.0" startX="-100.0" strokeWidth="2.0" />
       <Line endX="-155.0" endY="-56.0" layoutX="351.0" layoutY="214.0" startX="-169.0" startY="-56.0" strokeWidth="2.0" />
       <Label graphicTextGap="5.0" layoutX="151.0" layoutY="148.0" onMouseClicked="#showUpperLeftSL" text="&lt;&lt;">
@@ -111,7 +111,7 @@
       </Group>
       <Group layoutX="648.0" layoutY="78.0" translateX="-1.0" />
       <Group layoutX="686.0" layoutY="82.0" rotate="90.0" />
-      <Circle fill="DODGERBLUE" layoutX="612.0" layoutY="157.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="DODGERBLUE" layoutX="612.0" layoutY="157.0" onMouseClicked="#showUpperRightF" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="124.0" endY="-71.0" layoutX="540.0" layoutY="227.0" startX="89.0" startY="-71.0" strokeWidth="2.0" translateX="1.0" translateY="1.0" />
       <Label layoutX="607.0" layoutY="147.0" text="F">
          <font>
@@ -197,7 +197,7 @@
       </Group>
       <Group layoutX="433.0" layoutY="327.0" translateY="-2.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showAdd2i" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showAdd2i1" stroke="BLACK" strokeType="INSIDE" width="36.0" />
             <Line endX="-72.0" layoutX="104.0" layoutY="18.0" startX="-100.0" strokeWidth="2.0" />
             <Line endX="-100.0" endY="25.0" layoutX="118.0" layoutY="5.0" startX="-100.0" startY="1.0" strokeWidth="2.0" />
          </children>

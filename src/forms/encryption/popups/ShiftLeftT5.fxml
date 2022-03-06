@@ -6,8 +6,8 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="204.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.encryption.popups.ShiftLeftT5">
-    <Group layoutX="1.0" layoutY="90.0" rotate="180.0">
+<AnchorPane prefHeight="275.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.encryption.popups.ShiftLeftT5">
+    <Group layoutX="246.0" layoutY="242.0" rotate="90.0">
         <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
         <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
         <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
@@ -17,32 +17,34 @@
         <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
         <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
     </Group>
-    <Group layoutX="492.0" layoutY="90.0" rotate="180.0">
+    <Group layoutX="163.0" layoutY="128.0">
         <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
         <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
         <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
     </Group>
-    <Group layoutX="330.0" layoutY="90.0" rotate="180.0">
-        <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
-        <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
-        <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
-    </Group>
-    <TextField fx:id="shiftLeftStart" editable="false" layoutX="380.0" layoutY="90.0" prefHeight="24.0" prefWidth="109.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="194.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
-    <TextField fx:id="shiftLeftEnd" editable="false" layoutX="27.0" layoutY="91.0" prefHeight="24.0" prefWidth="109.0" />
-    <Label layoutX="235.0" layoutY="93.0" text="X &lt;&lt; L">
+    <TextField fx:id="shiftLeftStart" editable="false" layoutX="208.0" layoutY="59.0" prefHeight="24.0" prefWidth="109.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="51.0" layoutX="195.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="134.0" />
+    <TextField fx:id="shiftLeftEnd" editable="false" layoutX="206.0" layoutY="215.0" prefHeight="24.0" prefWidth="109.0" />
+    <Label layoutX="235.0" layoutY="131.0" text="X &lt;&lt; T">
         <font>
             <Font size="15.0" />
         </font>
     </Label>
-    <Line endX="-55.0" endY="-48.0" layoutX="435.0" layoutY="151.0" startX="-73.5858154296875" startY="-48.0" strokeWidth="2.0" />
-    <Group layoutX="138.0" layoutY="90.0" rotate="180.0">
+    <Line endX="30.0" endY="-10.0" layoutX="-36.0" layoutY="151.0" startX="89.0" startY="-10.0" strokeWidth="2.0" />
+    <Group layoutX="248.0" layoutY="87.0" rotate="90.0">
         <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
         <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
         <Line endX="17.0" endY="-13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />    
     </Group>
-    <Line endX="-101.0" endY="-59.0" layoutX="295.0" layoutY="162.0" startX="-125.5858154296875" startY="-59.0" strokeWidth="2.0" />
-   <Label layoutX="429.0" layoutY="119.0" text="X">
+    <Line endX="-130.0" endY="-84.0" layoutX="391.0" layoutY="250.0" startX="-130.0" startY="-35.0" strokeWidth="2.0" />
+   <Label layoutX="324.0" layoutY="63.0" prefHeight="19.0" prefWidth="9.0" text="X">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <TextField fx:id="shiftLeftShiftT" editable="false" layoutX="54.0" layoutY="129.0" prefHeight="24.0" prefWidth="109.0" />
+   <Line endX="15.0" endY="5.0" layoutX="247.0" layoutY="54.0" startX="15.0" startY="-54.0" strokeWidth="2.0" />
+   <Label layoutX="104.0" layoutY="156.0" prefHeight="19.0" prefWidth="9.0" text="T">
       <font>
          <Font size="15.0" />
       </font>

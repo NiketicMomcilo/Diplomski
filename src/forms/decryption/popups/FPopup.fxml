@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.shape.Rectangle?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.decryption.popups.FPopup"
-            prefHeight="204.0" prefWidth="521.0">
+<AnchorPane prefHeight="204.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.popups.FPopup">
     <Group layoutX="1.0" layoutY="90.0" rotate="180.0">
         <Line endX="30.0" layoutY="13.207107543945312" strokeWidth="2.0" />
         <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />

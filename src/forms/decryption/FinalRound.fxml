@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="773.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.FinalRound">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.decryption.FinalRound">
     <children>
         <Group layoutX="485.0" layoutY="381.0" rotate="90.0">
             <children>
@@ -84,7 +84,7 @@
         <Group layoutX="82.0" layoutY="290.0" translateY="-2.0">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showMinusDownLeft" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-                <Line endX="30.0" endY="18.0" startX="7.0" startY="18.0" />
+                <Line endX="30.0" endY="18.0" onMouseClicked="#showMinusDownLeft" startX="7.0" startY="18.0" />
                 <Group layoutX="17.5" layoutY="5.5" />
             </children>
         </Group>
@@ -136,8 +136,8 @@
         <Group layoutX="101.0" layoutY="429.0">
             <children>
                 <Circle fill="DODGERBLUE" onMouseClicked="#showXorLeft" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                <Line endX="-69.0" layoutX="69.0" layoutY="12.0" startX="-69.0" startY="-25.0" />
-                <Line endX="-73.0" layoutX="86.0" startX="-100.0" />
+                <Line endX="-69.0" layoutX="69.0" layoutY="12.0" onMouseClicked="#showXorLeft" startX="-69.0" startY="-25.0" />
+                <Line endX="-73.0" layoutX="86.0" onMouseClicked="#showXorLeft" startX="-100.0" />
             </children>
         </Group>
         <Group layoutX="86.0" layoutY="512.0" rotate="90.0">
@@ -215,10 +215,10 @@
             </children>
         </Group>
         <Line endX="-109.0" endY="-57.0" layoutX="675.0" layoutY="364.0" startX="-93.0" startY="-57.0" strokeWidth="2.0" />
-        <Group layoutX="481.0" layoutY="287.0">
+        <Group layoutX="481.0" layoutY="287.0" onMouseClicked="#showMinusDownRight">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showMinusDownRight" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-                <Line endX="30.0" endY="18.0" startX="7.0" startY="18.0" />
+                <Line endX="30.0" endY="18.0" onMouseClicked="#showMinusDownRight" startX="7.0" startY="18.0" />
                 <Group layoutX="17.5" layoutY="5.5" />
             </children>
         </Group>
@@ -235,8 +235,8 @@
         <Group layoutX="500.0" layoutY="429.0">
             <children>
                 <Circle fill="DODGERBLUE" onMouseClicked="#showXorRight" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                <Line endX="-69.0" layoutX="69.0" layoutY="12.0" startX="-69.0" startY="-25.0" />
-                <Line endX="-73.0" layoutX="86.0" startX="-100.0" />
+                <Line endX="-69.0" layoutX="69.0" layoutY="12.0" onMouseClicked="#showXorRight" startX="-69.0" startY="-25.0" />
+                <Line endX="-73.0" layoutX="86.0" onMouseClicked="#showXorRight" startX="-100.0" />
             </children>
         </Group>
         <Group layoutX="519.0" layoutY="415.0" rotate="180.0">
@@ -276,7 +276,7 @@
         <Button fx:id="prevButton" layoutX="584.0" layoutY="637.0" mnemonicParsing="false" onAction="#goToPreviousRound" text="Previous" />
         <Group layoutX="242.0" layoutY="473.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showMinusS0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
                 <Line endX="30.0" endY="18.0" startX="7.0" startY="18.0" />
                 <Group layoutX="17.5" layoutY="5.5" />
             </children>
@@ -295,9 +295,9 @@
                 <Line endX="17.0" endY="13.0" layoutY="13.0" startX="30.0" strokeWidth="2.0" />
             </children>
         </Group>
-        <Group layoutX="641.0" layoutY="473.0">
+        <Group layoutX="641.0" layoutY="473.0" onMouseClicked="#showMinusS1">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" onMouseClicked="#showMinusS1" stroke="BLACK" strokeType="INSIDE" width="36.0" />
                 <Line endX="30.0" endY="18.0" startX="7.0" startY="18.0" />
                 <Group layoutX="17.5" layoutY="5.5" />
             </children>
@@ -308,12 +308,12 @@
         <Line endX="100.0" endY="-137.0" layoutX="593.0" layoutY="394.0" startX="100.0" startY="31.0" strokeWidth="2.0" />
         <Line endX="318.5" endY="-29.5" layoutX="374.0" layoutY="454.0" startX="286.0" startY="-29.5" strokeWidth="2.0" />
         <Line endX="2.0" endY="-29.0" layoutX="657.0" layoutY="454.0" startX="2.0" startY="19.0" strokeWidth="2.0" />
-        <Label layoutX="285.0" layoutY="482.0" text="S[0]">
+        <Label layoutX="204.0" layoutY="482.0" text="S[0]">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label layoutX="685.0" layoutY="482.0" text="S[1]">
+        <Label layoutX="606.0" layoutY="482.0" text="S[1]">
             <font>
                 <Font size="15.0" />
             </font>
