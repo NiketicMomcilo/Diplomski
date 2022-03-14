@@ -1,4 +1,4 @@
-package controllers.encryption;
+package controllers.encryption.rounds;
 
 import controllers.encryption.popups.AddPopup;
 import controllers.encryption.popups.FPopup;
@@ -17,10 +17,9 @@ import sample.RC6;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class MiddleRound implements Initializable {
+public class FinalRound implements Initializable {
 
     public TextField AStart;
     public TextField BStart;
@@ -28,15 +27,19 @@ public class MiddleRound implements Initializable {
     public TextField DStart;
     public TextField AxorT;
     public TextField CxorU;
-    public Button next;
-    public Button prev;
+    public Button previous;
     public TextField AFinish;
     public TextField BFinish;
     public TextField CFinish;
     public TextField DFinish;
     public Label roundCounter;
+    public TextField AFinishRotate;
+    public TextField BFinishRotate;
+    public TextField CFinishRotate;
+    public TextField DFinishRotate;
 
     public static final int WIDTH = 520,HEIGHT_1= 270, HEIGHT_2 = 204;
+
     @Override
     public void initialize ( URL url, ResourceBundle resourceBundle ) {
 
@@ -77,33 +80,52 @@ public class MiddleRound implements Initializable {
 
         int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dfinish);
         DFinish.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+
+        //Finish rotate
+        byte temp;
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Afinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        AFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Bfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        BFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Cfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        CFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
+
+        int_to_bytes = Main.intToByteArray(RC6.encryptionRoundData.get(Main.roundCounter).Dfinish);
+        temp = int_to_bytes[ 0 ];
+        int_to_bytes[0] = int_to_bytes[ 3 ];
+        int_to_bytes[3] = temp;
+        temp = int_to_bytes[ 1 ];
+        int_to_bytes[1] = int_to_bytes[ 2 ];
+        int_to_bytes[2] = temp;
+        DFinishRotate.setText(RC6.byteArrayToHex(int_to_bytes).replaceAll("..", "$0 ").toUpperCase());
     }
 
-    public void loadNextRound ( ) throws IOException {
-        Main.roundCounter++;
-        //loads final round
-        Parent root;
-        if ( Main.roundCounter == 19 ) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/FinalRound.fxml")));
-            Main.primaryStage.setTitle("FinalRound");
-        } else {//loads any middle round
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/MiddleRound.fxml")));
-            Main.primaryStage.setTitle("MiddleRound");
-        }
-        Main.primaryStage.setScene(new Scene(root, 773, 625));
-
-    }
-
-    public void loadPreviousRound ( ) throws IOException {
+    public void loadPrevious ( ) throws IOException {
         Main.roundCounter--;
         Parent root;
-        if ( Main.roundCounter == 0 ) {//loads first round
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/FirstRound.fxml")));
-            Main.primaryStage.setTitle("FirstRound");
-        } else {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/MiddleRound.fxml")));
-            Main.primaryStage.setTitle("MiddleRound");
-        }
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/rounds/MiddleRound.fxml")));
+        Main.primaryStage.setTitle("MiddleRound");
         Main.primaryStage.setScene(new Scene(root, 773, 625));
     }
 
@@ -159,8 +181,9 @@ public class MiddleRound implements Initializable {
         if(Main.popupStage == null){
             Main.popupStage = new Stage();
         }
+        ShiftLeftLgWordPopup.left = 0;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftU5.fxml")));
-        Main.popupStage.setTitle("Shift Left U5");
+        Main.popupStage.setTitle("Shift left U ");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
@@ -171,14 +194,13 @@ public class MiddleRound implements Initializable {
         if(Main.popupStage == null){
             Main.popupStage = new Stage();
         }
+        ShiftLeftLgWordPopup.left = 1;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/ShiftLeftT5.fxml")));
-        Main.popupStage.setTitle("Shift Left T5");
+        Main.popupStage.setTitle("Shift left T");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
-
-
 
 
     public void showAdd2i() throws IOException{
@@ -230,5 +252,32 @@ public class MiddleRound implements Initializable {
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
     }
+
+    public void showAdd2r2() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2r2";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+    public void showAdd2r3() throws IOException{
+        if(Main.popupStage == null){
+            Main.popupStage = new Stage();
+        }
+        AddPopup.code = "S2r3";
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/popups/AddPopup.fxml")));
+        Main.popupStage.setTitle("Add");
+        Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_1));
+        Main.popupStage.setResizable(false);
+        Main.popupStage.show();
+    }
+
+
+
 
 }

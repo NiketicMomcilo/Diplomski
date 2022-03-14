@@ -172,7 +172,7 @@ public class EnterInputDataEncryption implements Initializable {
     }
 
     public void nextScene ( ) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/FirstRound.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/encryption/rounds/FirstRound.fxml")));
         Main.primaryStage.setTitle("FirstRound");
         Main.primaryStage.setScene(new Scene(root, 773, 625));
     }

@@ -1,10 +1,9 @@
-package controllers.decryption;
+package controllers.decryption.rounds;
 
 import controllers.decryption.popups.FPopup;
 import controllers.decryption.popups.MinusPopup;
 import controllers.decryption.popups.ShiftLeftLgWord;
 import controllers.decryption.popups.XorPopup;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -92,10 +91,10 @@ public class MiddleRound implements Initializable {
         Main.roundCounter--;
         Parent root;
         if ( Main.roundCounter == 0 ) {//loads first round
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/FirstRound.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/rounds/FirstRound.fxml")));
             Main.primaryStage.setTitle("FirstRound");
         } else {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/rounds/MiddleRound.fxml")));
             Main.primaryStage.setTitle("MiddleRound");
         }
         Main.primaryStage.setScene(new Scene(root, 773, 683));
@@ -107,10 +106,10 @@ public class MiddleRound implements Initializable {
         //loads final round
         Parent root;
         if ( Main.roundCounter == 19 ) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/FinalRound.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/rounds/FinalRound.fxml")));
             Main.primaryStage.setTitle("FinalRound");
         } else {//loads any middle round
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/rounds/MiddleRound.fxml")));
             Main.primaryStage.setTitle("MiddleRound");
         }
         Main.primaryStage.setScene(new Scene(root, 773, 683));
@@ -146,7 +145,7 @@ public class MiddleRound implements Initializable {
         }
         ShiftLeftLgWord.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
-        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setTitle("Shift Left");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
@@ -157,7 +156,7 @@ public class MiddleRound implements Initializable {
         }
         ShiftLeftLgWord.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
-        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setTitle("Shift Left");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();

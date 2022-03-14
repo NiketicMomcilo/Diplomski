@@ -1,4 +1,4 @@
-package controllers.decryption;
+package controllers.decryption.rounds;
 
 import controllers.decryption.popups.FPopup;
 import controllers.decryption.popups.MinusPopup;
@@ -120,8 +120,8 @@ public class FirstRound implements Initializable {
 
     public void next ( ) throws IOException {
         Main.roundCounter++;
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/MiddleRound.fxml")));
-        Main.primaryStage.setTitle("FirstRound");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/rounds/MiddleRound.fxml")));
+        Main.primaryStage.setTitle("Middle Round");
         Main.primaryStage.setScene(new Scene(root, 773, 683));
     }
 
@@ -177,7 +177,7 @@ public class FirstRound implements Initializable {
         }
         ShiftLeftLgWord.left = true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
-        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setTitle("Shift Left");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();
@@ -188,7 +188,7 @@ public class FirstRound implements Initializable {
         }
         ShiftLeftLgWord.left = false;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/forms/decryption/popups/ShiftLeftLgWordPopup.fxml")));
-        Main.popupStage.setTitle("Minus");
+        Main.popupStage.setTitle("Shift Left");
         Main.popupStage.setScene(new Scene(root, WIDTH,HEIGHT_2));
         Main.popupStage.setResizable(false);
         Main.popupStage.show();

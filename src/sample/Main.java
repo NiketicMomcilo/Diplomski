@@ -51,7 +51,7 @@ public class Main extends Application {
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../forms/util/EnterParameters.fxml")));
 
-        primaryStage.setTitle("Enter parameters");
+        primaryStage.setTitle("Mode");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }

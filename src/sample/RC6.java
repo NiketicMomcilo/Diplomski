@@ -351,44 +351,6 @@ public class RC6 {
         outputArr = convertIntToByte(temp_data_decryption, keySchArray.length);
         return outputArr;
     }
-    /*
-    public static void main ( String[] args ) {
-        String key_data;
-        String text_data;
-
-        boolean flag = true;
-        if ( flag ) {
-            text_data = "45 46 47 48 c8 24 18 16 f0 d7 e4 89 20 ad 16 a1";
-            key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
-
-            key_data = key_data.replace(" ", "");
-            text_data = text_data.replace(" ", "");
-
-            byte[] key = hexStringToByteArray(key_data);
-            byte[] words = hexStringToByteArray(text_data);
-
-            KeySchedule(key);
-
-            byte[] encrypt = encryption(words);
-            String encrypted_text = byteArrayToHex(encrypt);
-
-        } else {
-            text_data = "87 f2 36 15 1c 59 96 ce aa 17 63 2e 88 c9 0d 4e";
-            key_data = "01 23 45 67 89 ab cd ef 01 12 23 34 45 56 67 78 89 9a ab bc cd de ef f0 10 32 54 76 98 ba dc fe";
-
-            key_data = key_data.replace(" ", "");
-            text_data = text_data.replace(" ", "");
-
-            byte[] key2 = hexStringToByteArray(key_data);
-            byte[] X = hexStringToByteArray(text_data);
-            KeySchedule(key2);
-            byte[] decrypt = decryption(X);
-            String decrypted_text = byteArrayToHex(decrypt);
-
-        }
-
-    }
-*/
     // KEY SCHEDULING ALGORITHM
     public static void KeySchedule ( byte[] key ) {
         S = new int[ 2 * rounds + 4 ];
